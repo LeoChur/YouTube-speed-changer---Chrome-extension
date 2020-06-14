@@ -1,0 +1,44 @@
+{
+  "name": "Speed",
+  "version": "1.0",
+  "description": "YouTube speed changer",
+  "permissions": [
+    "activeTab",
+    "declarativeContent",
+    "tabs",
+    "https://www.youtube.com/*",
+    "storage"
+  ],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "24": "icon.png",
+      "32": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.youtube.com/*"
+      ],
+      "js": [
+        "Youtube.js"
+      ]
+    }
+  ],
+  "background": {
+    "persistent": false,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "commands": {"_execute_page_action": {
+    "suggested_key": {
+      "default": "Alt + S",
+      "windows": "Alt + S"
+    }
+  }},
+  "manifest_version": 2
+}
